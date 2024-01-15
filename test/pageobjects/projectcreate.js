@@ -27,7 +27,7 @@ class ProjectCreate extends Page {
         }, {timeout : 100000})
 
         await this.input_name.setValue('Dummy Test');
-        await this.input_address.setValue('Midas Center');
+        await this.input_address.setValue('MIDAS Center, Road No 16, Dhaka, Bangladesch');
         await this.input_client.setValue('Humaira');
 
         await this.create_proj.click();
