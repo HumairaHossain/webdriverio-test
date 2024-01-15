@@ -1,0 +1,8 @@
+2024-01-14T17:24:52.594Z INFO @wdio/local-runner: Run worker command: run
+2024-01-14T17:24:52.627Z ERROR @wdio/local-runner: Failed launching test session: Error: Couldn't find plugin "junit" reporter, neither as wdio scoped package "@wdio/junit-reporter" nor as community package "wdio-junit-reporter". Please make sure you have it installed!
+    at initializePlugin (file:///D:/webdriverio/webdriverio-test/node_modules/@wdio/utils/build/initializePlugin.js:35:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async BaseReporter._loadReporter (file:///D:/webdriverio/webdriverio-test/node_modules/@wdio/runner/build/reporter.js:178:30)
+    at async Promise.all (index 1)
+    at async BaseReporter.initReporters (file:///D:/webdriverio/webdriverio-test/node_modules/@wdio/runner/build/reporter.js:23:27)
+    at async Runner.run (file:///D:/webdriverio/webdriverio-test/node_modules/@wdio/runner/build/index.js:70:9)
