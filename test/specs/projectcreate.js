@@ -16,6 +16,8 @@ describe('My Login application', () => {
 
     it ('Project Creation', async() => {
         await projectcreate.ProjectCreate()
+        await expect (await projectcreate.create_proj).toHaveText("Project Created Successfully")
+        await projectcreate.create_proj.click();
     })
 
 })
