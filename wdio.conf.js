@@ -1,3 +1,9 @@
+import environment from "./environment.js";
+
+let ENV = process.argv.find((val) => ['dev', 'stage', 'local'].includes(val));
+if (!ENV) ENV = 'stage';
+process.env.ENV = ENV;
+
 exports.config = {
     //
     // ====================
@@ -23,6 +29,11 @@ exports.config = {
     specs: [
         './test/specs/**/*.js'
     ],
+    suites: {
+        login: ['test/specs/test.e2e.js'],
+        uidgenerate: ['test/specs/projectcreate.js'],  
+      },
+
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -85,7 +96,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: environment[process.env.ENV],
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
