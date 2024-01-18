@@ -31,7 +31,7 @@ exports.config = {
     ],
     suites: {
         login: ['test/specs/test.e2e.js'],
-        uidgenerate: ['test/specs/projectcreate.js'],  
+        createproject: ['test/specs/projectcreate.js'],  
       },
 
     // Patterns to exclude.

@@ -22,6 +22,8 @@ class ProjectCreate extends Page {
     async ProjectCreate (){
 
         await this.generate_project.click();
+        await this.add_project.click();
+        await this.movement_type.click();
         await browser.waitUntil(async () => {
             return (await this.input_name).isExisting();
         }, {timeout : 100000})
