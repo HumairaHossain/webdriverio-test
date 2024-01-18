@@ -1,4 +1,5 @@
 import environment from "./environment.js";
+import LoginPage from './test/pageobjects/login.page.js'
 
 let ENV = process.argv.find((val) => ['dev', 'stage', 'local'].includes(val));
 if (!ENV) ENV = 'stage';
@@ -31,7 +32,10 @@ exports.config = {
     ],
     suites: {
         login: ['test/specs/test.e2e.js'],
-        uidgenerate: ['test/specs/projectcreate.js'],  
+        createproject: ['test/specs/projectcreate.js'], 
+        createadmin: ['test/specs/createadmin.js'],
+        downloadcsv: ['test/specs/downloadcsv.js'],
+        searchuser: ['test/specs/searchuser.js'],
       },
 
     // Patterns to exclude.
@@ -196,8 +200,10 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        // LoginPage.open()
+        LoginPage.login('saiful.bhuiya@selisegroup.com', 'Moveit2023')
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name
@@ -238,8 +244,11 @@ exports.config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+        if (!passed) {
+            await browser.takeScreenshot();
+        }
+    },
 
 
     /**

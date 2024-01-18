@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "publish": "npx allure generate --clean && npx allure serve allure-results",
     "test": "echo \"Error: no test specified\" && exit 1",
     "wdio": "wdio run ./wdio.conf.js",
     "login": "npx wdio run ./wdio.conf.js --suite login",
-    "projectcreate": "npx wdio run ./wdio.conf.js --suite projectcreate"
+    "projectcreate": "npx wdio run ./wdio.conf.js --suite projectcreate",
+    "createadmin":"npx wdio run ./wdio.conf.js --suite createadmin" 
   },
   "keywords": [],
   "author": "",
