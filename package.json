@@ -9,7 +9,10 @@
     "wdio": "wdio run ./wdio.conf.js",
     "login": "npx wdio run ./wdio.conf.js --suite login",
     "projectcreate": "npx wdio run ./wdio.conf.js --suite projectcreate",
-    "createadmin":"npx wdio run ./wdio.conf.js --suite createadmin" 
+    "createadmin":"npx wdio run ./wdio.conf.js --suite createadmin" ,
+    "searchuser":"npx wdio run ./wdio.conf.js --suite searchuser",
+    "uploadfile":"npx wdio run ./wdio.conf.js --suite uploadfile",
+    "downloadcsv":"npx wdio run ./wdio.conf.js --suite downloadcsv"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +22,8 @@
     "@wdio/local-runner": "^8.27.2",
     "@wdio/mocha-framework": "^8.27.2",
     "@wdio/spec-reporter": "^8.27.2"
-  }
+  },
+  "dependencies": {
+    "wdio-video-reporter": "^4.0.5"
+}
 }

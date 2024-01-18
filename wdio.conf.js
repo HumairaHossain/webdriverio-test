@@ -36,6 +36,7 @@ exports.config = {
         createadmin: ['test/specs/createadmin.js'],
         downloadcsv: ['test/specs/downloadcsv.js'],
         searchuser: ['test/specs/searchuser.js'],
+        uploadfile: ['test/specs/uploadfile.js'],
       },
 
     // Patterns to exclude.
@@ -139,7 +140,14 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec','junit',
+    ['allure', {outputDir: 'allure-results'}],
+
+    [video, {
+        saveAllVideos: true,       // If true, also saves videos for successful test cases
+        videoSlowdownMultiplier: 10, // Higher to get slower videos, lower for faster videos [Value 1-100]
+        videoRenderTimeout: 5,
+      }],],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
